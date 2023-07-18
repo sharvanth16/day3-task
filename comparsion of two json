@@ -1,0 +1,27 @@
+let obj1 = { name: "person1", age: 5 };
+let obj2 = { age: 5, name: "person1" };
+
+function compareObjects(obj1, obj2) {
+  let obj1Keys = Object.keys(obj1);
+  let obj2Keys = Object.keys(obj2);
+
+  if (obj1Keys.length !== obj2Keys.length) {
+    return false;
+  }
+
+  // Check if each key-value pair in obj1 exists in obj2
+  for (let key of obj1Keys) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+
+  // All key-value pairs match
+  return true;
+}
+
+if (compareObjects(obj1, obj2)) {
+  console.log("The objects have the same properties.");
+} else {
+  console.log("The objects do not have the same properties.");
+}
